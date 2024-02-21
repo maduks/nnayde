@@ -1,0 +1,18 @@
+.nform-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nform-input-control {
+  background: #f5f6f7 !important;
+  height: 50px !important;
+  width: 100% !important;
+  border-radius: 5px !important;
+}
+
+.nform-text-control {
+  background: #f5f6f7 !important;
+  height: 50px !important;
+  width: 100% !important;
+  border-radius: 5px !important;
+}
