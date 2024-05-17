@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
 import geometric_shape from "../../images/geometric_shape.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
-function Aboutsection() {
+function Aboutsection(props) {
   const images = {
     medic_big:
       "https://ik.imagekit.io/paysupport/nnayde/taxi-driver-female-client-interacting-formal-way_u402KDkzM.jpeg?updatedAt=1705916002171",
@@ -54,7 +55,7 @@ function Aboutsection() {
               data-aos-once="false"
               className="text-display-title"
             >
-              Empowering Health, Elevating Lives.
+              {props.title}
             </h2>
             <p
               data-aos="fade-right"
@@ -64,10 +65,7 @@ function Aboutsection() {
               data-aos-mirror="true"
               data-aos-once="false"
             >
-              We are committed to prioritizing client satisfaction by providing
-              reliable, safe, and efficient non-emergency medical transportation
-              services. We aim to ensure accessible and comfortable
-              transportation for patients and individuals with medical needs...
+              {props.description}
             </p>
           </div>
           {/* end section-header */}
@@ -93,7 +91,7 @@ function Aboutsection() {
                   border: "2px solid #b9b4b4",
                   borderRadius: 10,
                 }}
-                src={images.medic_small}
+                src={props.images[0]}
               />
               <img
                 data-aos="slide-up"
@@ -110,7 +108,7 @@ function Aboutsection() {
                   border: "3px solid #b9b4b4",
                   borderRadius: 10,
                 }}
-                src={images.medic_big}
+                src={props.images[1]}
               />
             </div>
           </div>

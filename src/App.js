@@ -10,6 +10,13 @@ const Investors = lazy(() => import('./pages/Investors'));
 const Contact = lazy(() => import("./pages/Contact"));
 const Careers = lazy(() => import("./pages/Careers"));
 function App() {
+  const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+  const isIE = document.documentMode;
+  if (isIE){
+    alert(
+      "Your MESSAGE here."
+    )
+  }
   useEffect(() => {
     console.log(document.querySelector('.s-header__nav'))
     const ssMobileMenu = function () {
@@ -33,6 +40,7 @@ function App() {
   
               // at 900px and below
               if (window.matchMedia('(max-width: 900px)').matches) {
+                
                   toggleButton.classList.toggle('is-clicked');
                   siteBody.classList.toggle('menu-is-open');
               }
@@ -51,32 +59,32 @@ function App() {
   
   } // end ssMobileMenu
        ssMobileMenu()
-       function osfunction ()
-{
-    let os = navigator.userAgent;
-    let finalOs="";
-    if (os.search('Windows')!==-1){
-        finalOs="Windows";
-    }
-    else if (os.search('Mac')!==-1){
-        finalOs="MacOS";
-    }
-    else if (os.search('X11')!==-1 && !(os.search('Linux')!==-1)){
-        finalOs="UNIX";
-    }
-    else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
-        finalOs="Linux"
-    }
+
+       navigator.browserDetection= (function(){
+        var ua= navigator.userAgent, tem, 
+        M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+        if(/trident/i.test(M[1])){
+            tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+            return 'IE '+(tem[1] || '');
+        }
+        if(M[1]=== 'Chrome'){
+            tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
+            if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+        }
+        M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+        if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+        return M.join(' ');
+    })();
     
-    return finalOs;
-
-}
-
+    console.log(navigator.browserDetection); 
     return () => {
-      const os= osfunction();
-      if(os==="MacOS"){
-        ssMobileMenu()
+     
+      if(navigator.browserDetection.includes("Safari")){
+       // alert(navigator.browserDetection)
+        ssMobileMenu();
       }
+    
+    
 
     }
   });

@@ -9,7 +9,8 @@ import drivers_three from "../../images/drivers_three_nnayde.jpeg";
 import LabelInput from "../forms/LabelInput";
 import TextLabel from "../forms/TextLabel";
 import { useDropzone } from "react-dropzone";
-const Intro = () => {
+const Intro = (props) => {
+  console.log(JSON.stringify(props));
   const images = {
     drivers_one:
       "https://ik.imagekit.io/paysupport/nnayde/careers/driver_nnyade_medicare_2WJG3tMK6.jpeg?updatedAt=1705579677528",
@@ -85,8 +86,8 @@ const Intro = () => {
         <div className="row">
           <div className="column xl-6 md-12">
             <h1 className="page-title" style={{ color: "#fff" }}>
-              Experience Drivers
-              <br /> Needed.
+              {props.title}
+            
             </h1>
           </div>
         </div>
@@ -96,11 +97,7 @@ const Intro = () => {
             style={{ color: "#fff", paddingTop: 30, paddingBottom: 30 }}
           >
             <span style={{ color: "" }}>
-              Are you passionate about making a positive impact on people's
-              lives? Are you someone who thrives on delivering exceptional
-              service and values the importance of healthcare?If so, we invite
-              you to join Nnayde as a driver and become an integral part of our
-              mission to revolutionize healthcare logistics
+              {props.text}
             </span>
           </div>
         </div>
@@ -114,11 +111,14 @@ const Intro = () => {
             </NavLink>
           </div>
         </div>
+        {
+
+        }
         <div className="row">
           <div className="column xl-4 md-12">
             <p>
               <img height={34} width={34} src={position} />{" "}
-              <b style={{ color: "#fff" }}>Driver</b>
+              <b style={{ color: "#fff" }}>{props.tags[0]}</b>
             </p>
           </div>
         </div>
@@ -127,17 +127,23 @@ const Intro = () => {
           <div className="column xl-4 md-12">
             <p>
               <img height={34} width={34} src={location} />{" "}
-              <b style={{ color: "#fff" }}>Texas Houston. </b>
+              <b style={{ color: "#fff" }}>{props.tags[1]} </b>
             </p>
           </div>
         </div>
       </section>
       <section className="pagemain">
         <div className="gridimages row  pagemain">
-          <img src={images.drivers_one} />
-          <img src={images.drivers_two} />
-          <img src={images.drivers_three} />
-          <img src={images.drivers_four} />
+          {
+            props.images?.map((images) => {
+              return (
+                <img
+                  src={images}
+                />
+              );
+            })
+          }
+      
         </div>
       </section>
       <section className="pagemain" style={{ marginTop: 100 }}>
@@ -145,32 +151,16 @@ const Intro = () => {
           <div className="column  xl-12 md-12">
             <h2>Overview</h2>
             <p>
-              We are looking for motivated and experienced drivers to join our
-              Non-Emergency Medical Transportation Service at Nnadye. Our
-              Drivers perform a key role in providing a safe transportation
-              service for our clients/ members requiring transportation to and
-              from, their place of residence to their medical appointment in a
-              timely manner while prioritizing comfort
-              <br />
-              <br />
-              At Nnadye, we consider our drivers as the backbone of our
-              workforce hence we create an excellent work-life balance and
-              career advancement opportunities in a rewarding work environment.
+              {props.overview}
+           
             </p>
           </div>
 
           <div className="column  xl-12 md-12">
             <h2>Our Culture</h2>
             <p>
-              We strive to live by our values and are committed to promoting
-              inclusion, where every staff member has a sense of belonging.
-              <br />
-              <br />
-              We value our differences and fully advocate, cultivate and support
-              an inclusive working environment. Our culture is built on the
-              principles of teamwork, efficiency and a shared passion for the
-              sectors we serve. We provide a supportive and inspiring work
-              environment that allows for personal and professional growth
+              {props.culture}
+           
             </p>
           </div>
         </div>

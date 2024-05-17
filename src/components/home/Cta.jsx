@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Cta = () => {
+const Cta = (props) => {
   return (
     <section
       style={{
@@ -15,13 +15,10 @@ const Cta = () => {
       <div className="row row-x-center text-center">
         <div className="column xl-8 lg-12">
           <div className="s-cta__content">
-            <h2 className="text-display-title">Get started with us today.</h2>
-            <p className="lead">
-              We invite you to join us in our mission to improve the lives of
-              individuals who rely on reliable and compassionate NEMT services.
-            </p>
+            <h2 className="text-display-title">{props.title}</h2>
+            <p className="lead">{props.description}</p>
             <NavLink to="/investors" className="btn btn--primary">
-              Let's Work Together
+              {props.btntext}
             </NavLink>
           </div>
         </div>
