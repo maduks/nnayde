@@ -6,12 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
 function Aboutsection(props) {
-  const images = {
-    medic_big:
-      "https://ik.imagekit.io/paysupport/nnayde/taxi-driver-female-client-interacting-formal-way_u402KDkzM.jpeg?updatedAt=1705916002171",
-    medic_small:
-      "https://ik.imagekit.io/paysupport/nnayde/about_medic_small_346XLTSY3.jpeg?updatedAt=1705578921324",
-  };
+
   //useEffect
   useEffect(() => {
     AOS.init();

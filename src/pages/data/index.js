@@ -2,7 +2,7 @@ import axios from "axios";
 export function getHomeData(values) {
   return new Promise((resolve, reject) => {
     axios
-      .get("http://localhost:4001/homePage/")
+      .get("https://backends.nnaydemedcare.com/backend/homePage/")
       .then((result) => {
         resolve(result.data);
       })
@@ -15,7 +15,7 @@ export function getHomeData(values) {
 export function getAboutData(values) {
   return new Promise((resolve, reject) => {
     axios
-      .get("http://localhost:4001/aboutPage/")
+      .get("https://backends.nnaydemedcare.com/backend/aboutPage/")
       .then((result) => {
         resolve(result.data);
       })
@@ -28,7 +28,7 @@ export function getAboutData(values) {
 export function getContactData(values) {
   return new Promise((resolve, reject) => {
     axios
-      .get("http://localhost:4001/contactPage/")
+      .get("https://backends.nnaydemedcare.com/backend/contactPage/")
       .then((result) => {
         resolve(result.data);
       })
@@ -41,7 +41,7 @@ export function getContactData(values) {
 export function getCareersData(values) {
   return new Promise((resolve, reject) => {
     axios
-      .get("http://localhost:4001/careersPage/")
+      .get("https://backends.nnaydemedcare.com/backend/careersPage/")
       .then((result) => {
         resolve(result.data);
       })
@@ -54,7 +54,7 @@ export function getCareersData(values) {
 export function getSiteData(values) {
   return new Promise((resolve, reject) => {
     axios
-      .get("http://localhost:4001/siteGlobals/")
+      .get("https://backends.nnaydemedcare.com/backend/siteGlobals/")
       .then((result) => {
         resolve(result.data);
       })
